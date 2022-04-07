@@ -23,11 +23,12 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-Cypress.Commands.add('searchBlur', (query, limit) => {
+Cypress.Commands.add('searchBlur', (query, type, limit) => {
     cy.request({
-        url: "https://tastedive.com/api/similar?q='search'%2Climit:limit",
+        url: "https://tastedive.com/api/similar",
         qs: {
             q: query,
+            type: type,
             limit: limit
         }
     }) 
